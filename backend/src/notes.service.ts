@@ -1,12 +1,7 @@
-/**
- * Data Model Interfaces
- */
 import { BaseNote, Note } from "./interface.note";
-import { Notes } from "./notes.interface";
+import { Notes } from "./interface.notes";
 
-/**
- * In-Memory Store
- */
+//some filler notes
 let notes: Notes = {
   1: {
     id: 1,
@@ -26,16 +21,11 @@ let notes: Notes = {
 
 };
 
-/**
- * Service Methods
- */
+//service methods
 export const findAll = async (): Promise<Note[]> => Object.values(notes);
-
 export const find = async (id: number): Promise<Note> => notes[id];
-
 export const create = async (newItem: BaseNote): Promise<Note> => {
   const id = new Date().valueOf();
-
   notes[id] = {
     id,
     ...newItem,
@@ -50,21 +40,14 @@ export const update = async (
 ): Promise<Note | null> => {
   const item = await find(id);
 
-  if (!item) {
-    return null;
-  }
-
+  if (!item) { return null; }
   notes[id] = { id, ...itemUpdate };
-
   return notes[id];
 };
 
 export const remove = async (id: number): Promise<null | void> => {
   const item = await find(id);
 
-  if (!item) {
-    return null;
-  }
-
+  if (!item) { return null; }
   delete notes[id];
 };

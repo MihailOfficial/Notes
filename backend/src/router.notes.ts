@@ -10,7 +10,6 @@ export const notesRouter = express.Router();
 notesRouter.get("/", async (req: Request, res: Response) => {
   try {
     const notes: Note[] = await NoteService.findAll();
-
     res.status(200).send(notes);
   } catch (e) {
     res.status(500).send(e.message);
@@ -23,9 +22,7 @@ notesRouter.get("/:id", async (req: Request, res: Response) => {
 
   try {
     const note: Note = await NoteService.find(id);
-
     if (note) { return res.status(200).send(note); }
-
     res.status(404).send("Note not found");
   } catch (e) {
     res.status(500).send(e.message);
@@ -36,9 +33,7 @@ notesRouter.get("/:id", async (req: Request, res: Response) => {
 notesRouter.post("/", async (req: Request, res: Response) => {
   try {
     const note: BaseNote = req.body;
-
     const newNote = await NoteService.create(note);
-
     res.status(201).json(newNote);
   } catch (e) {
     res.status(500).send(e.message);

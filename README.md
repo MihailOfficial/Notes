@@ -1,5 +1,5 @@
 # NotesApp
- 
+
  Please follow the instructions in order.
  
  Run instructions:
@@ -13,4 +13,8 @@
 How to use the app:
 - Double click on the text of a note to edit (it will change red). You can save the changes using the note's save button.
 - Add a new note via the new note at the bottom.
+
+App's Ui:
+
+ <img width="485" alt="image" src="https://user-images.githubusercontent.com/68878155/217676974-957e6e98-57a8-4c24-89fc-b57f35f2ed7f.png">
  
